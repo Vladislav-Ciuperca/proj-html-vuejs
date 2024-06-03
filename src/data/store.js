@@ -11,7 +11,7 @@ const informazioni = {
         },
         {
             name: "How to be a speaker",
-            teacher: "Ajeje Brazorf",
+            teacher: "Luigi Vuittone",
             price: "Free",
             img: "/src/assets/img/Speaker-icon.png"
         },
@@ -23,7 +23,7 @@ const informazioni = {
         },
         {
             name: "Brand Management",
-            teacher: "Luigi Vuittone",
+            teacher: "Ajeje Brazorf",
             price: "Free",
             img: "/src/assets/img/Brand-icon.png"
         },
