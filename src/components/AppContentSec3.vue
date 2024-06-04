@@ -54,9 +54,9 @@ img {
 }
 
 .card-img:hover img {
-    transform: scale(1.1);
+    transform: scale(1.03);
     filter: sepia(0.1);
-    filter: brightness(1.1);
+    filter: brightness(1.05);
 }
 
 .card-container {
