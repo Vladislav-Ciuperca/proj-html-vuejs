@@ -27,6 +27,27 @@ const informazioni = {
             price: "Free",
             img: "/src/assets/img/Brand-icon.png"
         },
+    ],
+
+    latestBlogs: [
+        {
+            title: "Winning your business",
+            content: "Never settle for less! You can have everything you want and need. Use the most powerful ",
+            date: "February 17, 2019 ",
+            img: '/src/assets/img/theme_slider1_bg-1.jpg'
+        },
+        {
+            title: "Selling Strategies",
+            content: "Never settle for less! You can have everything you want and need. Use the most powerful ",
+            date: "February 16, 2019 ",
+            img: '/src/assets/img/theme_slider2_bg-1.jpg'
+        },
+        {
+            title: "Winning your business",
+            content: "Never settle for less! You can have everything you want and need. Use the most powerful ",
+            date: "February 15, 2019 ",
+            img: '/src/assets/img/theme_slider3_bg-1.jpg'
+        },
     ]
 
 }

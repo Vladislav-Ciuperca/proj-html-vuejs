@@ -1,5 +1,5 @@
 <script>
-import Store from '../data/store.js';
+import Store from '../data/StoreVladi.js';
 
 export default {
 
@@ -66,7 +66,7 @@ export default {
     padding: 1rem;
     padding-bottom: 2.5rem;
     margin-bottom: 2.5rem;
-    box-shadow: 0 0 10px 2px rgba(146, 145, 145, 0.329);
+    box-shadow: 0px 5px 40px 2px rgba(122, 122, 122, 0.158);
     border: none;
     position: relative;
 
@@ -84,6 +84,11 @@ button {
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
+    transition: 0.4s;
+}
+
+button:hover {
+    background-color: #E9D758;
 }
 
 .img-container {

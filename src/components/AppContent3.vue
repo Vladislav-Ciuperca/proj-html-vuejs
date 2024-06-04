@@ -2,6 +2,7 @@
 import AppContentSec1 from './AppContentSec1.vue';
 import AppContentSec2 from './AppContentSec2.vue';
 import AppContentSec3 from './AppContentSec3.vue';
+import NewsLetterBanner from './NewsLetterBanner.vue';
 
 
 export default {
@@ -9,6 +10,7 @@ export default {
     AppContentSec1,
     AppContentSec2,
     AppContentSec3,
+    NewsLetterBanner,
 
   },
   data() {
@@ -30,10 +32,13 @@ export default {
 
 <template>
   <div class="my-bg-white my-black ">
-    <main class="container-lg p-5">
-      <AppContentSec1 />
-      <AppContentSec2 />
-      <AppContentSec3 />
+    <main>
+      <div class="container-lg p-5">
+        <AppContentSec1 />
+        <AppContentSec2 />
+        <AppContentSec3 class="pt-5" />
+      </div>
+      <NewsLetterBanner />
     </main>
   </div>
 </template>
@@ -41,9 +46,10 @@ export default {
 
 <style scoped>
 main {
-  /* width: 1200px; */
-  border: 2px dashed red;
   margin: auto;
-  padding: 1rem;
+}
+
+main>* {
+  margin-top: 2rem;
 }
 </style>
