@@ -7,25 +7,25 @@ const informazioni = {
             name: "Make Better Decisions",
             teacher: "James Collins",
             price: "$21.00",
-            img: "/src/assets/img/Decisions-icon.png"
+            img: "img/Decisions-icon.png"
         },
         {
             name: "How to be a speaker",
             teacher: "Luigi Vuittone",
             price: "Free",
-            img: "/src/assets/img/Speaker-icon.png"
+            img: "img/Speaker-icon.png"
         },
         {
             name: "Network Introductions",
             teacher: "Laurenzio Maestri",
             price: "Free",
-            img: "/src/assets/img/Network-icon.png"
+            img: "img/Network-icon.png"
         },
         {
             name: "Brand Management",
             teacher: "Ajeje Brazorf",
             price: "Free",
-            img: "/src/assets/img/Brand-icon.png"
+            img: "img/Brand-icon.png"
         },
     ],
 
@@ -34,19 +34,19 @@ const informazioni = {
             title: "Winning your business",
             content: "Never settle for less! You can have everything you want and need. Use the most powerful ",
             date: "February 17, 2019 ",
-            img: '/src/assets/img/theme_slider1_bg-1.jpg'
+            img: 'img/theme_slider1_bg-1.jpg'
         },
         {
             title: "Selling Strategies",
             content: "Never settle for less! You can have everything you want and need. Use the most powerful ",
             date: "February 16, 2019 ",
-            img: '/src/assets/img/theme_slider2_bg-1.jpg'
+            img: 'img/theme_slider2_bg-1.jpg'
         },
         {
             title: "Winning your business",
             content: "Never settle for less! You can have everything you want and need. Use the most powerful ",
             date: "February 15, 2019 ",
-            img: '/src/assets/img/theme_slider3_bg-1.jpg'
+            img: 'img/theme_slider3_bg-1.jpg'
         },
     ]
 
