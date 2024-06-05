@@ -23,7 +23,7 @@ export default {
     <div class="row">
         <div class="info-row  col-6">
             <div class="info-row-ico">
-                <img src="../assets/img/Exam-icon.png" alt="">
+                <img src="/img/Exam-icon.png" alt="">
             </div>
             <h1 class="round-font">The most efficient examination method</h1>
             <p>
@@ -34,19 +34,19 @@ export default {
             <button class="mt-1">Discover the Method</button>
         </div>
         <div class="img-container  col-6">
-            <img src="../assets/img/Exam-Illustration.png" alt="">
+            <img src="/img/Exam-Illustration.png" alt="">
         </div>
     </div>
 
 
     <div class="row">
         <div class="img-container  col-6">
-            <img src="../assets/img/Girl-Illustration.png" alt="">
+            <img src="/img/Girl-Illustration.png" alt="">
         </div>
 
         <div class="info-row  col-6">
             <div class="info-row-ico">
-                <img src="../assets/img/Exam-icon-1.png" alt="">
+                <img src="/img/Exam-icon-1.png" alt="">
             </div>
             <h1 class="round-font">Variable fees for
                 international students</h1>
