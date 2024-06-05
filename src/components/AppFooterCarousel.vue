@@ -116,11 +116,11 @@ export default {
                         <p>"{{ elemento.testimonial }}"</p>
                         <div class="d-flex pt-4">
                             <div class="student img-container">
-                                <img class="prova" src="/public/img/naruto-1.jpg" alt="">
+                                <img :src="elemento.user_img" alt="">
                             </div>
                             <div class="info">
-                                <h2 class="round-font">Nome di persona non di cosa</h2>
-                                <p>sono un figo bla bla </p>
+                                <h2 class="round-font">{{elemento.name}}</h2>
+                                <p class="my-lightgrey">CLASSE {{elemento.class}}</p>
                             </div>
                         </div>
                     </div>
@@ -142,9 +142,6 @@ export default {
 
 
 <style scoped>
-.debug{
-    border: 2px dashed red;
-}
 /* stile del titolo */
 h1 {
     font-size: 3rem;
@@ -161,13 +158,14 @@ h1 {
 }
 
 #footerCarosell {
-    background: rgba(172, 255, 47, 0.329);
     margin: auto;
     width: 100%;
-    height: 500px;
-    overflow-x: hidden;
+    height: 440px;
+    overflow: hidden;
     transition: 2s ease;
     caret-color: transparent;
+    padding: 1rem;
+    padding-right: 0.5rem;
 }
 
 .smooth {
@@ -178,22 +176,21 @@ h1 {
     display: flex;
     width: 200%;
     height: 100%;
+    align-items: start;
 }
 
 
 .elemento {
-    border: 2px dashed #F87102;
-    background: rgb(255, 212, 132);
     width: 50%;
     padding: 1rem;
 }
-/* stile della carta */
 
 .carta{
-    border: 2px dashed purple;
+    border: none;
     border-radius: 15px;
-    height: 100% ;
-    padding: 2rem 3rem;
+    height: 95% ;
+    padding: 3rem;
+    box-shadow: 0px 5px 20px 5px rgba(122, 122, 122, 0.158);
 }
 .top h2{
     width: 80%;
@@ -207,14 +204,16 @@ h1 {
     flex-direction: column;
     justify-content: center;
 }
+.carta>p{
+    padding-top: 1rem;
+}
 
 .info h2{
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 20px;
 }
 
 .img-container{
-    border: 2px dashed #E56768 ;
     background: rgba(172, 255, 47, 0.418);
     width: 80px;
     height: 80px;
@@ -225,7 +224,6 @@ h1 {
 .student{
     border-radius: 50%;
     overflow: hidden;
-    transform: scale(1.2);
 }
 
 .dots {
