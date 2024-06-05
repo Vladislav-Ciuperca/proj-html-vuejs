@@ -1,5 +1,6 @@
 <script>
 import store from '../data/StoreVladi.js'
+import animateScrollTo from 'animated-scroll-to';
 
 
 export default {
@@ -8,13 +9,9 @@ export default {
             isClicked: false,
             isSmooth: true,
             store,
-            valore1: "",
-            valore2: "",
-            valore3: "",
-            valore4: "",
-            bambi: 'a',
             isAtLeft: true,
             isAtRight: false,
+            animateScrollTo,
         }
     },
     methods: {
@@ -28,14 +25,10 @@ export default {
             if (footerCarosell.scrollLeft <= halfWay) {
                 this.isAtRight = false
                 this.isAtLeft = true
-                console.log("right is", this.isAtRight)
-                console.log("Left is", this.isAtLeft)
             }
             else if (footerCarosell.scrollLeft >= halfWay) {
                 this.isAtRight = true
                 this.isAtLeft = false
-                console.log("right is", this.isAtRight)
-                console.log("Left is", this.isAtLeft)
 
             }
         },
@@ -47,7 +40,7 @@ export default {
         Right() {
             const footerCarosell = document.getElementById('footerCarosell');
 
-            footerCarosell.scrollLeft += 1500;
+            footerCarosell.scrollLeft += (1500);
 
             this.isAtRight = true
             this.isAtLeft = false
@@ -57,7 +50,7 @@ export default {
         Left() {
             const footerCarosell = document.getElementById('footerCarosell');
 
-            footerCarosell.scrollLeft -= 1500;
+            footerCarosell.scrollLeft -= (1500);
 
             let halfWay = (footerCarosell.scrollWidth - footerCarosell.clientWidth) / 2
 
@@ -92,50 +85,51 @@ export default {
 
 
 <template>
+    <div id="container">
+        <div class="container-lg">
 
-    <div class="container">
+            <div class="title">
+                <h1 class="round-font">Thoughts from our students</h1>
+            </div>
 
-        <div class="title">
-            <h1 class="round-font">Thoughts from our students</h1>
-        </div>
+            <div id="footerCarosell" @mousemove="dragging" @mousedown="isClicked = !isClicked, isSmooth = !isSmooth"
+                @mouseup="mouseRelease()" :class="{ smooth: isSmooth, slow: isSmooth }">
 
-        <div id="footerCarosell" @mousemove="dragging" @mousedown="isClicked = !isClicked, isSmooth = !isSmooth"
-            @mouseup="mouseRelease()" :class="{ smooth: isSmooth, slow: isSmooth }">
-
-            <div id="element-container"><!--width 1750px(va in overflow)-->
-                <div v-for="elemento in store.testimonials" class="elemento">
-                    <div class="carta">
-                        <div class="d-flex top">
-                            <div class="faculty img-container">
-                                <img :src="elemento.faculty_img" alt="">
+                <div id="element-container"><!--width 1750px(va in overflow)-->
+                    <div v-for="elemento in store.testimonials" class="elemento">
+                        <div class="carta">
+                            <div class="d-flex top">
+                                <div class="faculty img-container">
+                                    <img :src="elemento.faculty_img" alt="">
+                                </div>
+                                <h2 class="round-font my-red">
+                                    FACULTY OF
+                                    {{ elemento.faculty.toUpperCase() }}
+                                </h2>
                             </div>
-                            <h2 class="round-font my-red">
-                                FACULTY OF 
-                                {{elemento.faculty.toUpperCase()}}
-                            </h2>
-                        </div>
-                        <p>"{{ elemento.testimonial }}"</p>
-                        <div class="d-flex pt-4">
-                            <div class="student img-container">
-                                <img :src="elemento.user_img" alt="">
-                            </div>
-                            <div class="info">
-                                <h2 class="round-font">{{elemento.name}}</h2>
-                                <p class="my-lightgrey">CLASSE {{elemento.class}}</p>
+                            <p>"{{ elemento.testimonial }}"</p>
+                            <div class="d-flex pt-4">
+                                <div class="student img-container">
+                                    <img :src="elemento.user_img" alt="">
+                                </div>
+                                <div class="info">
+                                    <h2 class="round-font">{{ elemento.name }}</h2>
+                                    <p class="my-lightgrey">CLASSE {{ elemento.class }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
         </div>
+
 
         <div class=" dots">
             <button :class="{ red: isAtLeft }" id="sx"><i @click="Left()" class="fa-solid fa-circle"></i></button>
             <button :class="{ red: isAtRight }" id="dx"><i @click="Right()" class="fa-solid fa-circle"></i></button>
         </div>
-
-
     </div>
 
 </template>
@@ -143,7 +137,6 @@ export default {
 
 
 <style scoped>
-/* stile del titolo */
 h1 {
     font-size: 3rem;
 }
@@ -153,21 +146,25 @@ h1 {
     padding: 3rem;
 }
 
-.container {
+#container {
+    width: 100%;
     justify-content: center;
-    height: 69vh;
-    background-image: url(/public/img/)
+    background-image: url(/public/img/background-wave3.png);
+    background-color: #F7F8FA;
+    /* background-color: #1a2f5a; */
+    background-size: cover;
 }
 
 #footerCarosell {
+    /* background-color: #1a2f5a; */
     margin: auto;
     width: 100%;
-    height: 440px;
+    height: 460px;
     overflow: hidden;
     transition: 2s ease;
     caret-color: transparent;
-    padding: 1rem;
-    padding-right: 0.5rem;
+    padding: 1rem 0;
+    /* padding-right: 0rem; */
 }
 
 .smooth {
@@ -187,34 +184,37 @@ h1 {
     padding: 1rem;
 }
 
-.carta{
+.carta {
     border: none;
     border-radius: 15px;
-    height: 95% ;
+    height: 95%;
     padding: 3rem;
     box-shadow: 0px 5px 20px 5px rgba(122, 122, 122, 0.158);
+    background: white;
 }
-.top h2{
+
+.top h2 {
     width: 80%;
     font-size: 1.75rem;
     letter-spacing: 3px;
 }
 
-.info{
+.info {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.carta>p{
+
+.carta>p {
     padding-top: 1rem;
 }
 
-.info h2{
+.info h2 {
     font-size: 1.5rem;
     line-height: 20px;
 }
 
-.img-container{
+.img-container {
     /* background: rgba(172, 255, 47, 0.418); */
     width: 80px;
     height: 80px;
@@ -222,7 +222,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.student{
+.student {
     border-radius: 50%;
     overflow: hidden;
 }
@@ -249,7 +249,7 @@ button:hover {
     color: #E56768 !important;
 }
 
-img{
-    width: 100% ;
+img {
+    width: 100%;
 }
 </style>

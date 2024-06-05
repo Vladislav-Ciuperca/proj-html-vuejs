@@ -31,16 +31,10 @@ export default {
 
 <template>
 
-  <div class="container-lg ">
-    <AppContent3 />
-  </div>
-
+  <AppContent3 />
   <NewsLetterBanner class="mt-5" />
-
-  <div class="container-lg">
-    <AppContentCarousel />
-    <AppFooterCarousel />
-  </div>
+  <AppContentCarousel />
+  <AppFooterCarousel />
 
 </template>
 
