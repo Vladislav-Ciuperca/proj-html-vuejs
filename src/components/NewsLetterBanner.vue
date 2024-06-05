@@ -66,6 +66,12 @@ button {
     position: absolute;
     right: 8.4%;
     transition: 0.4s;
+
+    background-color: #e9d758;
+    border-radius: 50%;
+    position: absolute;
+    /* right: 0;
+    top: 0; */
 }
 
 button:hover {
