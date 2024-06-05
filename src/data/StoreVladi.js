@@ -48,7 +48,9 @@ const informazioni = {
             date: "February 15, 2019 ",
             img: 'img/theme_slider3_bg-1.jpg'
         },
-    ]
+    ],
+
+   
 
 }
 
