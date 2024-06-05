@@ -51,24 +51,7 @@ export default {
 
     },
     created() {
-        setInterval(() => {
-            const carousel = document.getElementById('carousel');
 
-            this.valore1 = carousel.scrollWidth
-            this.valore2 = carousel.clientWidth;
-            this.valore3 = carousel.scrollWidth - carousel.clientWidth
-            this.valore4 = carousel.scrollLeft
-
-            if (carousel.scrollLeft == carousel.scrollWidth - carousel.clientWidth) {
-                document.getElementById("heart").innerHTML = "&#128148"
-            }
-            else if (carousel.scrollLeft == 0) {
-                document.getElementById("heart").innerHTML = "&#128150"
-            }
-            else {
-                document.getElementById("heart").innerHTML = "&#128558"
-            }
-        }, 20)
     },
     mounted() {
 
@@ -80,6 +63,11 @@ export default {
 <template>
 
 
+    <div class="title">
+        <h1 class="round-font">Management</h1>
+        <p>A team of expert teachers that are leading our university! Meet our staff and become a student at EduPrime this year!</p>
+    </div>
+
     <div class="container">
 
         <button @click="Left()">next</button>
@@ -88,20 +76,20 @@ export default {
         <div @mousemove="dragging" @mousedown="isClicked = !isClicked, isSmooth = !isSmooth" @mouseup="mouseRelease()"
             id="carousel" :class="{ smooth: isSmooth, slow: isSmooth }">
 
-            <div id="element-container"><!--width 1750px(va in overflow)-->
-                <div class="elemento">foto 1</div>
-                <div class="elemento">foto 2</div>
+            <div id="element-container">
+                <div class="elemento">
+                    <img src="../assets/img/personaggi-naruto-kakashi-hatake.jpg" alt="">
+                </div>
+                <div class="elemento">
+                    <img src="../assets/img/personaggi-naruto-gaara.jpg" alt="">
+                </div>
                 <div class="elemento">foto 3</div>
                 <div class="elemento">foto 4</div>
                 <div class="elemento">foto 5</div>
-                <div class="elemento">foto 6</div>
-                <div class="elemento">foto 7</div>
-                <div class="elemento">foto 8</div>
             </div>
         </div>
 
         <button @click="Right()">next</button>
-
 
     </div>
 
@@ -109,9 +97,12 @@ export default {
 
 
 <style scoped>
-.container {
-    text-align: center;
+img{
+    width: 100%;
+}
+.container, .title {
     border: 2px dashed purple;
+    text-align: center;
 }
 
 h1 {
@@ -125,17 +116,17 @@ p {
 }
 
 .container {
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 69vh;
 }
 
 #carousel {
     width: 1100px;
     height: 330px;
     border: 2px dashed green;
-    background: rgba(172, 255, 47, 0.329);
+    /* background: rgba(172, 255, 47, 0.329); */
     display: flex;
     align-items: center;
     overflow-x: hidden;
@@ -143,7 +134,7 @@ p {
 
 .smooth {
     scroll-behavior: smooth;
-    transition: 5s  ;
+    transition: 5s;
 }
 
 .slow {}
@@ -166,12 +157,11 @@ button {
 .elemento {
     border: 2px dashed #F87102;
     background: rgb(255, 212, 132);
-    width: 200px;
-    height: 200px;
+    width: 216px;
+    height: 216px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    /* background: rgba(255, 166, 0, 0.288); */
 }
 </style>
