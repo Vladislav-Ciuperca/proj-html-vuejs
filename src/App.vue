@@ -2,6 +2,7 @@
 import AppContent3 from './components/AppContent3.vue'
 import NewsLetterBanner from './components/NewsLetterBanner.vue';
 import AppContentCarousel from './components/AppContentCarousel.vue';
+import AppFooterCarousel from './components/AppFooterCarousel.vue';
 
 
 export default {
@@ -9,6 +10,7 @@ export default {
     AppContent3,
     NewsLetterBanner,
     AppContentCarousel,
+    AppFooterCarousel,
   },
   data() {
     return {
@@ -37,6 +39,7 @@ export default {
 
   <div class="container-lg">
     <AppContentCarousel />
+    <AppFooterCarousel />
   </div>
 
 </template>

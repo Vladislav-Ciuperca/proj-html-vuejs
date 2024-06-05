@@ -66,9 +66,8 @@ export default {
     <div class="title">
         <h1 class="round-font">Management</h1>
         <p>A team of expert teachers that are leading our university! Meet our staff and become a student at EduPrime
-            this year!</p>
-        <div @mousemove="dragging" @mousedown="isClicked = !isClicked, isSmooth = !isSmooth" @mouseup="mouseRelease()"
-            class="white-shadow"></div>
+            this year!
+        </p>
     </div>
 
     <div class="container">
@@ -78,7 +77,11 @@ export default {
         </button>
 
         <!-- la documentazione su questi "@events" è in fondo alla pagina -->
-        <div id="carousel" :class="{ smooth: isSmooth, slow: isSmooth }">
+        <div id="carousel" 
+        :class="{ smooth: isSmooth, slow: isSmooth }"
+        @mousemove="dragging" 
+        @mousedown="isClicked = !isClicked, isSmooth = !isSmooth" 
+        @mouseup="mouseRelease()">
 
 
             <div v-for="elemento in store.carouselData" id="element-container">
@@ -108,18 +111,6 @@ export default {
 
 
 <style scoped>
-.white-shadow {
-    /* border: 2px dashed purple; */
-    width: 1114px;
-    height: 330px;
-    position: absolute;
-    left: 89px;
-    box-shadow: -60px 0 20px -20px rgb(255, 255, 255) inset,
-        60px 0 20px -10px rgb(255, 255, 255) inset;
-    /* border-radius: 110px; */
-    caret-color: transparent;
-    z-index: 9999999;
-}
 
 .name {
     font-size: 1.3rem;
@@ -136,7 +127,6 @@ img {
 
 .container,
 .title {
-    /* border: 2px dashed purple; */
     text-align: center;
     caret-color: transparent;
 }
@@ -165,7 +155,6 @@ p {
 #carousel {
     width: 1100px;
     height: 330px;
-    /* border: 2px dashed green; */
     display: flex;
     align-items: center;
     overflow-x: hidden;
@@ -180,7 +169,6 @@ p {
 
 
 #element-container {
-    /* transition: 8s; */
     display: flex;
     width: 1750px;
 }
@@ -194,7 +182,6 @@ button {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.2s;
-    /* transition: transform 0.1s; */
 }
 
 button:hover{
@@ -208,8 +195,6 @@ button:hover{
 }
 
 .img-container {
-    /* border: 2px dashed #F87102; */
-    /* background: rgb(255, 212, 132); */
     width: 170px;
     height: 170px;
     display: flex;
@@ -222,38 +207,43 @@ button:hover{
 }
 
 .elemento {
-    /* border: 2px dashed green; */
     padding: 2.2rem;
 }
 
 .on-element{
-    /* border: 2px dashed red; */
     width: 170px;
     height: 170px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
     padding: 1rem;
     transform: scale(0.3);
     transition: 0.3s ease;
     border-radius: 50%;
     color: #FFFFFF00;
+    background: #ffffffce;
     background: none;
 }
 .img-container:hover .on-element{
-    transform: scale(1);
-    background: #ffffff90;
+    transform: scale(1.2);
+    background: #ffffffce;
     color: #434959;
 }
 .elemento i{
     cursor: pointer;
     transition: 0.15s;
+    font-size: 1rem;
 }
 
 .elemento i:hover{
     color: #E56768;
+}
+
+.red{
+    
 }
 </style>
