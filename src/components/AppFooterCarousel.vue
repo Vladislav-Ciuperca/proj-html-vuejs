@@ -107,6 +107,7 @@ export default {
                     <div class="carta">
                         <div class="d-flex top">
                             <div class="faculty img-container">
+                                <img :src="elemento.faculty_img" alt="">
                             </div>
                             <h2 class="round-font my-red">
                                 FACULTY OF 
@@ -155,6 +156,7 @@ h1 {
 .container {
     justify-content: center;
     height: 69vh;
+    background-image: url(/public/img/)
 }
 
 #footerCarosell {
@@ -196,7 +198,6 @@ h1 {
     width: 80%;
     font-size: 1.75rem;
     letter-spacing: 3px;
-    line-height: 45px;
 }
 
 .info{
@@ -214,7 +215,7 @@ h1 {
 }
 
 .img-container{
-    background: rgba(172, 255, 47, 0.418);
+    /* background: rgba(172, 255, 47, 0.418); */
     width: 80px;
     height: 80px;
     margin-right: 1rem;
