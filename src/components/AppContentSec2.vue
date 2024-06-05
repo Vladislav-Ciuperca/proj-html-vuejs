@@ -31,7 +31,7 @@ export default {
                 of our students. Every teacher from our university has an influence on how students are evaluated at
                 his/her subject.
             </p>
-            <button class="mt-1">Discover the Method</button>
+            <button class="mt-1 round-font">Discover the Method</button>
         </div>
         <div class="img-container  col-6">
             <img src="/img/Exam-Illustration.png" alt="">
@@ -55,7 +55,7 @@ export default {
                 of our students. Every teacher from our university has an influence on how students are evaluated at
                 his/her subject.
             </p>
-            <button class="mt-1">Lists od Fees</button>
+            <button class="mt-1 round-font">Lists od Fees</button>
         </div>
 
 

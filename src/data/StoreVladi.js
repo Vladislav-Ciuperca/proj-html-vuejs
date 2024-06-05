@@ -83,28 +83,28 @@ const informazioni = {
             name: "Signore Contento",
             class: '125',
             faculty: 'Web Developement',
-            img: "img/naruto-1.jpg",
+            user_img: "img/naruto-1.jpg",
             testimonial: " I cant thank EduPrime enough for what it has done for me.I am now a successful doctor at one of the best clinics in the world."
         },
         {
             name: "Cliente Soddisfatto",
             class: '125',
             faculty: 'Computer Science',
-            img: "img/naruto-2.jpg",
+            user_img: "img/naruto-2.jpg",
             testimonial: " I cant thank EduPrime enough for what it has done for me.I am now a successful doctor at one of the best clinics in the world."
         },
         {
             name: "Essere Umano",
             class: '125',
             faculty: 'Scuola della vita',
-            img: "img/naruto-3.jpg",
+            user_img: "img/naruto-3.jpg",
             testimonial: " I cant thank EduPrime enough for what it has done for me.I am now a successful doctor at one of the best clinics in the world."
         },
         {
             name: "Contento Man",
             class: '125',
             faculty: 'cultura dei sobborghi',
-            img: "img/naruto-4.jpg",
+            user_img: "img/naruto-4.jpg",
             testimonial: " Eduprime is so beutiful. Eduprime is so good. Eduprame have perfect hairline and a sharp jawline. Eduprime smell so good"
         },
 

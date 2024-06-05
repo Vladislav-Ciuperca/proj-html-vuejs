@@ -103,20 +103,20 @@ export default {
             @mouseup="mouseRelease()" :class="{ smooth: isSmooth, slow: isSmooth }">
 
             <div id="element-container"><!--width 1750px(va in overflow)-->
-                <div class="elemento">
+                <div v-for="elemento in store.testimonials" class="elemento">
                     <div class="carta">
                         <div class="d-flex top">
                             <div class="faculty img-container">
-                              img
                             </div>
-                            <h2 class="round-font my-red">FACULTY OF BLABLABLA SOMETHING</h2>
+                            <h2 class="round-font my-red">
+                                FACULTY OF 
+                                {{elemento.faculty.toUpperCase()}}
+                            </h2>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt amet quia modi quod libero
-                            assumenda ut commodi, est in doloremque quisquam laborum voluptate quidem veritatis nes</p>
-                        <div class="d-flex">
+                        <p>"{{ elemento.testimonial }}"</p>
+                        <div class="d-flex pt-4">
                             <div class="student img-container">
-                                img
+                                <img class="prova" src="/public/img/naruto-1.jpg" alt="">
                             </div>
                             <div class="info">
                                 <h2 class="round-font">Nome di persona non di cosa</h2>
@@ -125,9 +125,6 @@ export default {
                         </div>
                     </div>
                 </div>
-                <div class="elemento">foto 2</div>
-                <div class="elemento">foto 3</div>
-                <div class="elemento">foto 4</div>
             </div>
 
         </div>
@@ -225,6 +222,12 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.student{
+    border-radius: 50%;
+    overflow: hidden;
+    transform: scale(1.2);
+}
+
 .dots {
     justify-content: center;
     display: flex;
@@ -245,5 +248,9 @@ button:hover {
 
 .red {
     color: #E56768 !important;
+}
+
+img{
+    width: 100% ;
 }
 </style>
