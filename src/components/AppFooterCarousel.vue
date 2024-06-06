@@ -164,6 +164,7 @@ h1 {
     transition: 2s ease;
     caret-color: transparent;
     padding: 1rem 0;
+    scroll-snap-type: x mandatory;
     /* padding-right: 0rem; */
 }
 
@@ -176,6 +177,7 @@ h1 {
     width: 200%;
     height: 100%;
     align-items: start;
+    scroll-snap-align: start;
 }
 
 
