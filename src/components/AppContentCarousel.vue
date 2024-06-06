@@ -63,14 +63,14 @@ export default {
 <template>
 
 
-    <div class="title">
+    <div class="title black">
         <h1 class="round-font">Management</h1>
         <p>A team of expert teachers that are leading our university! Meet our staff and become a student at EduPrime
             this year!
         </p>
     </div>
 
-    <div class="container">
+    <div class="container black">
 
         <button class="sx" @click="Left()">
             <i class="fa-solid fa-chevron-left"></i>
@@ -108,8 +108,6 @@ export default {
 
 
 <style scoped>
-
-
 .name {
     font-size: 1.3rem;
     font-weight: 650;
@@ -159,10 +157,13 @@ p {
     caret-color: transparent;
     margin: 0 2rem;
     scroll-snap-type: x mandatory;
+    user-select: none;
 }
-.snapAlign{
+
+.snapAlign {
     scroll-snap-align: start;
 }
+
 .smooth {
     scroll-behavior: smooth;
 }
@@ -182,10 +183,11 @@ button {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.2s;
+    margin-bottom: 1rem
 }
 
 button:hover {
-    background: #E9D758;
+    background: #E9D758;   
 }
 
 .dx:hover {

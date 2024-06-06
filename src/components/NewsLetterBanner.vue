@@ -4,11 +4,16 @@ export default {
 
     data() {
         return {
-
+            shorten: false
         }
     },
     methods: {
-
+        isHover() {
+            this.shorten = true
+        },
+        isNotHover() {
+            this.shorten = false
+        }
     },
     mounted() {
 
@@ -20,12 +25,12 @@ export default {
 
 
 <template>
-    <div class="my-bg-red ">
+    <div class="bg-red ">
         <div class="container-lg d-flex align-items-center p-5 m-auto row">
             <span class="col-6 round-font">Subscrive Now to Our Newsletter !</span>
             <div class="col-6 mail-input">
-                <input type="mail" placeholder="Email Adress...">
-                <button>
+                <input :class="{ shrink: shorten }" type="mail" placeholder="Email Adress...">
+                <button @mouseover="isHover()" @mouseleave="isNotHover()">
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </div>
@@ -56,31 +61,30 @@ input {
     margin-left: 4rem;
 }
 
+.shrink {
+    width: 70%;
+    box-shadow: 0px 5px 20px 4px rgba(0, 0, 0, 0.247),
+        0px 0px 10px 4px rgba(0, 0, 0, 0.089) inset;
+}
+
 button {
     width: 60px;
     height: 60px;
     border-radius: 50px;
     border: none;
-    background: #E9D758;
-    color: white;
     position: absolute;
-    right: 8.4%;
+    right: 9.1%;
     transition: 0.4s;
-
-    background-color: #e9d758;
+    color: #E56768;
+    background: white;
     border-radius: 50%;
     position: absolute;
-    /* right: 0;
-    top: 0; */
 }
 
 button:hover {
+    color: white;
     background: #E56768;
     transform: rotate(360deg);
     box-shadow: 0px 5px 20px 4px rgba(0, 0, 0, 0.247);
-}
-
-.mail-input:hover input {
-    width: 70%;
 }
 </style>

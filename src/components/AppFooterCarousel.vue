@@ -8,25 +8,22 @@ export default {
             isSmooth: true,
             store,
             isAtLeft: true,
-            isAtRight: false,
+            onHover: false
         }
     },
     methods: {
         dragging(value) {
             if (!this.isClicked) return;
             console.log('dragging...')
-            document.getElementById('footerCarosell').scrollLeft -= value.movementX
+            const footerCarosell = document.getElementById('footerCarosell');
+            footerCarosell.scrollLeft -= value.movementX;
 
-            let halfWay = (footerCarosell.scrollWidth - footerCarosell.clientWidth) / 2
+            let halfWay = (footerCarosell.scrollWidth - footerCarosell.clientWidth) / 2;
 
-            if (footerCarosell.scrollLeft <= halfWay) {
-                this.isAtRight = false
-                this.isAtLeft = true
-            }
-            else if (footerCarosell.scrollLeft >= halfWay) {
-                this.isAtRight = true
-                this.isAtLeft = false
-
+            if (footerCarosell.scrollLeft >= halfWay) {
+                this.isAtLeft = false;
+            } else {
+                this.isAtLeft = true;
             }
         },
         mouseRelease() {
@@ -38,10 +35,7 @@ export default {
             const footerCarosell = document.getElementById('footerCarosell');
 
             footerCarosell.scrollLeft += (1500);
-
-            this.isAtRight = true
             this.isAtLeft = false
-
         },
 
         Left() {
@@ -50,22 +44,38 @@ export default {
             footerCarosell.scrollLeft -= (1500);
 
             let halfWay = (footerCarosell.scrollWidth - footerCarosell.clientWidth) / 2
-
-
-            this.isAtRight = false
             this.isAtLeft = true
-
-
         },
-
-
+        goLeft() {
+            const footerCarosell = document.getElementById('footerCarosell');
+            footerCarosell.scrollLeft -= (1500);
+        }
     },
     created() {
-  
+        setInterval(() => {
+            const footerCarosell = document.getElementById('footerCarosell');
+
+            this.valore1 = footerCarosell.scrollWidth;
+            this.valore2 = footerCarosell.clientWidth;
+            this.valore3 = footerCarosell.scrollWidth - footerCarosell.clientWidth;
+            this.valore4 = footerCarosell.scrollLeft;
+        }, 20)
     },
 
     mounted() {
-
+        this.goLeft,
+            setInterval(() => {
+                const footerCarosell = document.getElementById('footerCarosell');
+                if (!this.onHover) {
+                    if (this.isAtLeft) {
+                        footerCarosell.scrollLeft += 1500;
+                        this.isAtLeft = false;
+                    } else {
+                        footerCarosell.scrollLeft -= 1500;
+                        this.isAtLeft = true;
+                    }
+                }
+            }, 6000)
     }
 }
 </script>
@@ -73,18 +83,19 @@ export default {
 
 <template>
     <div id="container">
-        <div class="container-lg">
+        <div class="container-lg" @mouseleave="onHover = false" @mouseover="onHover = true">
 
             <div class="title">
                 <h1 class="round-font">Thoughts from our students</h1>
             </div>
 
             <div id="footerCarosell" @mousemove="dragging" @mousedown="isClicked = !isClicked, isSmooth = !isSmooth"
-                @mouseup="mouseRelease()" :class="{ smooth: isSmooth, slow: isSmooth }">
+                @mouseup="mouseRelease()" :class="{ smooth: isSmooth, scrollType: isSmooth }">
 
                 <div id="element-container"><!--width 1750px(va in overflow)-->
-                    <div v-for="elemento in store.testimonials" class="elemento">
-                        <div class="carta">
+                    <div v-for="elemento in store.testimonials" class="elemento black"
+                        :class="{ scrollAlign: isSmooth }">
+                        <div class="carta black">
                             <div class="d-flex top">
                                 <div class="faculty img-container">
                                     <img :src="elemento.faculty_img" alt="">
@@ -99,7 +110,7 @@ export default {
                                 <div class="student img-container">
                                     <img :src="elemento.user_img" alt="">
                                 </div>
-                                <div class="info">
+                                <div class="info black">
                                     <h2 class="round-font">{{ elemento.name }}</h2>
                                     <p class="my-lightgrey">CLASSE {{ elemento.class }}</p>
                                 </div>
@@ -115,7 +126,8 @@ export default {
 
         <div class=" dots">
             <button :class="{ red: isAtLeft }" id="sx"><i @click="Left()" class="fa-solid fa-circle"></i></button>
-            <button :class="{ red: isAtRight }" id="dx"><i @click="Right()" class="fa-solid fa-circle"></i></button>
+            <button :class="{ red: isAtLeft == false }" id="dx"><i @click="Right()"
+                    class="fa-solid fa-circle"></i></button>
         </div>
     </div>
 
@@ -136,14 +148,12 @@ h1 {
 #container {
     width: 100%;
     justify-content: center;
-    background-image: url(/public/img/background-wave3.png);
+    background-image: url(img/background-wave3.png);
     background-color: #F7F8FA;
-    /* background-color: #1a2f5a; */
     background-size: cover;
 }
 
 #footerCarosell {
-    /* background-color: #1a2f5a; */
     margin: auto;
     width: 100%;
     height: 460px;
@@ -151,8 +161,17 @@ h1 {
     transition: 2s ease;
     caret-color: transparent;
     padding: 1rem 0;
+    user-select: none;
+}
+
+/* SCROLL TYPE */
+.scrollType {
     scroll-snap-type: x mandatory;
-    /* padding-right: 0rem; */
+}
+
+/* SCROLL ALIGN */
+.scrollAlign {
+    scroll-snap-align: start;
 }
 
 .smooth {
@@ -164,13 +183,13 @@ h1 {
     width: 200%;
     height: 100%;
     align-items: start;
-    scroll-snap-align: start;
 }
 
 
 .elemento {
     width: 50%;
     padding: 1rem;
+    scroll-snap-align: start;
 }
 
 .carta {
@@ -204,7 +223,6 @@ h1 {
 }
 
 .img-container {
-    /* background: rgba(172, 255, 47, 0.418); */
     width: 80px;
     height: 80px;
     margin-right: 1rem;

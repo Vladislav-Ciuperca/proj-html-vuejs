@@ -42,7 +42,7 @@ export default {
                     Price:
                     <span class="bold">{{ element.price }}</span>
                 </div>
-                <button class="my-bg-red round-font">
+                <button class="bg-red round-font">
                     <i class="fa-regular fa-eye"></i>
                     View Course
                 </button>

@@ -28,11 +28,11 @@ export default {
 
 
 <template>
-  <div class="my-bg-white my-black ">
+  <div class="my-bg-white my-black container-lg">
     <main>
         <AppContentSec1 />
         <AppContentSec2 />
-        <AppContentSec3 class="pt-5" />
+        <AppContentSec3 class="pt-5 pb-5 mb-5" />
     </main>
   </div>
 </template>

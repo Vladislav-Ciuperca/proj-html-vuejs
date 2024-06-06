@@ -20,7 +20,7 @@ export default {
 
 
 <template>
-    <div class="row">
+    <div class="row black">
         <div class="info-row  col-6">
             <div class="info-row-ico">
                 <img src="/img/Exam-icon.png" alt="">
@@ -39,7 +39,7 @@ export default {
     </div>
 
 
-    <div class="row">
+    <div class="row black">
         <div class="img-container  col-6">
             <img src="/img/Girl-Illustration.png" alt="">
         </div>
