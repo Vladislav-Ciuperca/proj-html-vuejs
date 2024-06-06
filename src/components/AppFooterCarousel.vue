@@ -1,7 +1,5 @@
 <script>
 import store from '../data/StoreVladi.js'
-import animateScrollTo from 'animated-scroll-to';
-
 
 export default {
     data() {
@@ -11,7 +9,6 @@ export default {
             store,
             isAtLeft: true,
             isAtRight: false,
-            animateScrollTo,
         }
     },
     methods: {
@@ -64,17 +61,7 @@ export default {
 
     },
     created() {
-        setInterval(() => {
-            const footerCarosell = document.getElementById('footerCarosell');
-
-            this.valore1 = footerCarosell.scrollWidth
-            this.valore2 = footerCarosell.clientWidth;
-            this.valore3 = footerCarosell.scrollWidth - footerCarosell.clientWidth
-            this.valore4 = footerCarosell.scrollLeft
-
-
-
-        }, 20)
+  
     },
 
     mounted() {

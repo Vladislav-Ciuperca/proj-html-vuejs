@@ -77,15 +77,12 @@ export default {
         </button>
 
         <!-- la documentazione su questi "@events" è in fondo alla pagina -->
-        <div id="carousel" 
-        :class="{ smooth: isSmooth, slow: isSmooth }"
-        @mousemove="dragging" 
-        @mousedown="isClicked = !isClicked, isSmooth = !isSmooth" 
-        @mouseup="mouseRelease()">
+        <div id="carousel" :class="{ smooth: isSmooth, slow: isSmooth }" @mousemove="dragging"
+            @mousedown="isClicked = !isClicked, isSmooth = !isSmooth" @mouseup="mouseRelease()">
 
 
             <div v-for="elemento in store.carouselData" id="element-container">
-                <div class="elemento">
+                <div class="elemento" :class="{ snapAlign: isSmooth }">
                     <div class="img-container">
                         <img :src="elemento.img" alt="">
                         <div class="on-element">
@@ -111,6 +108,7 @@ export default {
 
 
 <style scoped>
+
 
 .name {
     font-size: 1.3rem;
@@ -158,11 +156,13 @@ p {
     display: flex;
     align-items: center;
     overflow-x: hidden;
-    scroll-snap-type: x;
     caret-color: transparent;
     margin: 0 2rem;
+    scroll-snap-type: x mandatory;
 }
-
+.snapAlign{
+    scroll-snap-align: start;
+}
 .smooth {
     scroll-behavior: smooth;
 }
@@ -184,13 +184,15 @@ button {
     transition: 0.2s;
 }
 
-button:hover{
+button:hover {
     background: #E9D758;
 }
-.dx:hover{
+
+.dx:hover {
     transform: translate(3px);
 }
-.sx:hover{
+
+.sx:hover {
     transform: translate(-3px);
 }
 
@@ -210,7 +212,7 @@ button:hover{
     padding: 2.2rem;
 }
 
-.on-element{
+.on-element {
     width: 170px;
     height: 170px;
     position: absolute;
@@ -228,22 +230,22 @@ button:hover{
     background: #ffffffce;
     background: none;
 }
-.img-container:hover .on-element{
+
+.img-container:hover .on-element {
     transform: scale(1.2);
     background: #ffffffce;
     color: #434959;
 }
-.elemento i{
+
+.elemento i {
     cursor: pointer;
     transition: 0.15s;
     font-size: 1rem;
 }
 
-.elemento i:hover{
+.elemento i:hover {
     color: #E56768;
 }
 
-.red{
-    
-}
+.red {}
 </style>
