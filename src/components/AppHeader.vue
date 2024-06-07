@@ -4,23 +4,29 @@
 export default {
   data() {
     return {
+      hoveredIndex: null,
       logo: 'img/theme_eduprime_logo.png',
       bgHeader: 'img/hero.png',
       jumboDesc: 'EduPrime is the most versatile WordPress theme for educational purposes, showcasing universities, courses, secondary schools etc.',
       wave: '/img/Wave-1.png',
       links: [
-        { name: 'Home', actions: ['Action', 'Another action', 'Something else here'] },
-        { name: 'Courses', actions: ['Action', 'Another action', 'Something else here'] },
+        { name: 'Home', actions: ['Driving School', 'High School', 'Kinder Garden', 'Header Video'] },
+        { name: 'Courses', actions: ['Our Courses', 'Single Course', 'Instructor Profile','Become A Teacher'] },
         { name: 'About Us', actions: null },
-        { name: 'News', actions: ['Action', 'Another action', 'Something else here'] },
-        { name: 'Pages', actions: ['Action', 'Another action', 'Something else here'] },
+        { name: 'News', actions: ['EduPrime Blog', 'Single Post', 'Category Posts',] },
+        { name: 'Pages', actions: ['How it works', 'Single Event', 'Single Product', 'Contact',] },
         { name: 'Contact', actions: null },
         { name: 'Purchase', actions: null },
       ]
     }
   },
   methods: {
-
+    hovered(index) {
+      this.hoveredIndex = index;
+    },
+    unHovered() {
+      this.hoveredIndex = null;
+    }
   },
   mounted() {
 
@@ -32,39 +38,25 @@ export default {
   <!-- TEMPLATE html-->
   <div class="container-header bg-red position-relative">
     <!-- SEZIONE HEADER -->
-    <header class="p-4 d-flex justify-content-between align-items-center round-font">
+
+
+    <header class="d-flex justify-content-between align-items-center round-font">
       <div>
         <img class="logo" :src="logo" alt="">
       </div>
-      <div class="left">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid">
-            <!-- TEMPLATE PER CICLO DA DATA -->
-            <template v-for="element, i in links">
-              <div v-if="element.actions != null" class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item dropdown">
-                    <button class="btn  dropdown-toggle round-font" data-bs-toggle="dropdown" aria-expanded="false">
-                      {{ element.name }}
-                    </button>
-                    <!-- AD OGNI ELEMENTO CICLO NELLE ACTION PER STAMPARLE IN PAGINA NEL DROPDOWN -->
-                    <ul v-if="element.actions != null" class="dropdown-menu">
-                      <li v-for="elemento in element.actions"><a class="dropdown-item" href="#">{{ elemento }}</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <!-- SE NON CONTIENE AZIONI NON CREO IL DROPDOWN -->
-              <a v-if="element.actions == null" class="navbar-brand" href="#">{{ element.name }}</a>
-            </template>
-
-            <button class="button ms-3">VIEW COURSES</button>
-
+      <div class="dx d-flex justify-content-end align-items-center">
+        <div @mouseover="hovered(index)" @mouseleave="unHovered" v-for="(element, index) in links" :key="index" class="element">
+          <p >{{ element.name }} </p>
+          <i v-if="element.actions != null" class="fa-solid fa-caret-down"></i>
+          <div class="dropdown" :class="{ active: hoveredIndex === index }" v-if="element.actions">
+            <p v-for="contenuto in element.actions" :key="contenuto">{{ contenuto }}</p>
           </div>
-        </nav>
-        <div class="gradient-header"></div>
+        </div>
+        <button class="button ms-3">VIEW COURSES</button>
       </div>
     </header>
+
+
     <!-- FINE NAVBAR -->
     <div class="container">
       <!-- INIZIO JUMBOTRON -->
@@ -87,6 +79,71 @@ export default {
 <!-- CON SCOPED DICHIARO CSS SOLO AL ATTUALE COMPONENTE/file -->
 <style scoped>
 /* STILE */
+
+i {
+  padding-left: 0.4rem;
+  font-size: 0.6rem;
+}
+
+.dx {
+  width: 100%;
+  display: flex;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.element {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+}
+.element:hover{
+  color: #e9d758;
+  cursor: pointer;
+
+}
+
+.dropdown {
+  position: absolute;
+  padding: 1.5rem;
+  width: 220px;
+  top: 160px;
+  transition: 0.4s;
+  background: rgba(255, 255, 255, 0.849);
+  color: #292f50ab;
+  border: 2px dashed transparent;
+  text-wrap: nowrap;
+  border-radius: 7%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.active {
+  top: 60px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown p {
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.dropdown p:hover{
+  color: #d15e5e;
+}
+
+p {
+  padding-left: 1rem;
+  padding-top: 0.9rem;
+}
 
 .container {
   width: 1200px;
@@ -165,6 +222,7 @@ h1 {
   border: 1px solid transparent;
   font-weight: 600;
   transition: 0.3s ease;
+  height: 60px;
 }
 
 .button-white {

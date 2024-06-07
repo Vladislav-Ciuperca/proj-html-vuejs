@@ -83,6 +83,39 @@ export default {
 </template>
 
 <style scoped>
+.social {
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.facebook:hover {
+    border: 3px solid white;
+    background: #0866FF;
+    transform: rotate(360deg);
+}
+
+.twitter:hover {
+    border: 3px solid white;
+    background: #1C9CEA;
+    transform: rotate(360deg);
+}
+
+.instagram:hover {
+    border: 3px solid white;
+    transform: rotate(360deg);
+    background: rgb(131, 58, 180);
+    background: linear-gradient(214deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+.social i {
+    font-size: 1.5rem;
+}
 
 input {
     border: transparent;
@@ -117,7 +150,8 @@ button {
     border: none;
     position: absolute;
     right: 0%;
-    transition: 0.4s;
+    transition: .3s;
+    /* animation-delay: color 1s 1s; */
     color: #E56768;
     background: white;
     border-radius: 50%;
@@ -167,7 +201,7 @@ li:hover a {
     background-color: #e56768;
 }
 
-.fa-brands {
+/* .fa-brands {
     font-size: 1.2rem;
     border: 3px solid #e9d758;
     border-radius: 50%;
@@ -177,9 +211,9 @@ li:hover a {
 .fa-brands:hover {
     background-color: #e9d758;
     cursor: pointer;
-}
+} */
 
-.fa-instagram {
+/* .fa-instagram {
     padding: 0.8rem 1rem 0.8rem 1rem;
 }
 
@@ -189,7 +223,9 @@ li:hover a {
 
 .fa-facebook-f {
     padding: 0.8rem 1.2rem 0.8rem 1.2rem;
-}
+} */
+
+
 
 .btLinks {
     border: 1px solid white;

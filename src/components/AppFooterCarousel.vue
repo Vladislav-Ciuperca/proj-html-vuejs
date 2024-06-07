@@ -86,7 +86,7 @@ export default {
         <div class="container-lg" @mouseleave="onHover = false" @mouseover="onHover = true">
 
             <div class="title">
-                <h1 class="round-font">Thoughts from our students</h1>
+                <h1 class="round-font black">Thoughts from our students</h1>
             </div>
 
             <div id="footerCarosell" @mousemove="dragging" @mousedown="isClicked = !isClicked, isSmooth = !isSmooth"
@@ -148,7 +148,7 @@ h1 {
 #container {
     width: 100%;
     justify-content: center;
-    background-image: url(img/background-wave3.png);
+    background-image: url('/img/background-wave3.png');
     background-color: #F7F8FA;
     background-size: cover;
 }
