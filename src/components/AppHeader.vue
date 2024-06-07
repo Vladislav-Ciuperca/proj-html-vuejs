@@ -76,7 +76,7 @@ export default {
 
 </template>
 
-<!-- CON SCOPED DICHIARO CSS SOLO AL ATTUALE COMPONENTE/file -->
+<!-- CON SCOPED DICHIARO CSS SOLO AL ATTUALE COMPONENTE/file --->
 <style scoped>
 /* STILE */
 
